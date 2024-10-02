@@ -1,0 +1,41 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build debug",
+            "type": "shell",
+            "command": "/usr/bin/g++",                   // Explicit path to g++ (optional)
+            "args": [
+                "-g",                                    // Debugging information included
+                "${workspaceFolder}/src/*.cpp",          // Compile all .cpp files in the src folder
+                "-I", "${workspaceFolder}/include",      // Include path to header files
+                "-o", "${workspaceFolder}/bin/debug/myProgram",  // Output binary to bin/debug
+                "-std=c++11"                             // Use C++11 standard (or update based on your need)
+            ],
+            "group": {
+                "kind": "build",
+                                      // Default build task
+            },
+            "problemMatcher": ["$gcc"],
+            "detail": "Build Debug version for Linux"
+        },
+        {
+            "label": "build release",
+            "type": "shell",
+            "command": "/usr/bin/g++",                   // Explicit path to g++ (optional)
+            "args": [
+                "-O2",                                   // Optimize for performance
+                "${workspaceFolder}/src/*.cpp",          // Compile all .cpp files in the src folder
+                "-I", "${workspaceFolder}/include",      // Include path to header files
+                "-o", "${workspaceFolder}/bin/release/myProgram",  // Output binary to bin/release
+                "-std=c++11"                             // Use C++11 standard (or update based on your need)
+            ],
+            "group": {
+                "kind": "build",
+                                    // Manually select this task
+            },
+            "problemMatcher": ["$gcc"],
+            "detail": "Build Release version for Linux"
+        }
+    ]
+}
